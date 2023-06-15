@@ -56,6 +56,7 @@ body{
     color: grey;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+    overflow:hidden;
 }
 
 #result{
@@ -71,8 +72,8 @@ body{
     padding: 15px;
     padding-top: 5px;
     font-size: 35px;
-
-
+    overflow:hidden;
+    
 }
 
 button{ 
