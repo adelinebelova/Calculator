@@ -6,10 +6,17 @@
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
-    <div id="wrapper">
-        <body> 
-            <div class="container"> 
-                
+    
+<div id="wrapper">
+    <body id="back-light"> 
+        
+        <div class="container"> 
+            <label class="switch">
+                <input type="checkbox" id="switch">
+                <span class="slider round"></span>
+            </label>
+
+            <div id = "light-mode"> 
                 <div class="buttons">
                     <div id="input" ></div>
                     <div id="result"></div>
@@ -33,10 +40,11 @@
                     <button class="button" data-key="." id="decimal">.</button>
                     <button class="button" data-key="=" id="submit">=</button>
                 </div>
-            </div>
-            <script src="script.js"></script>
-        </body>
-    </div>
+            </div>   
+        </div>
+        <script src="script.js"></script>
+    </body>
+</div>
 
 
 </html>

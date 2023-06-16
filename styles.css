@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     font-size: 100%;
+    color:black;
 
 }
 
@@ -11,13 +12,80 @@
     position: relative;
 }
 
-body{
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #e4e4e4;
+    -webkit-transition: .4s;
+    transition: .4s;
+    translate: 290px -290px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #000000;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #000000;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+
+#back-light {
     background: rgb(129,47,255);
     background: linear-gradient(135deg, rgba(129,47,255,1) 0%, rgba(19,96,184,1) 41%, rgba(0,120,118,1) 81%, rgba(0,255,173,1) 133%);
     height:100vh;
  
 }
 
+#back-dark {
+    background: rgb(0,59,147);
+    background: linear-gradient(135deg, rgba(0,59,147,1) 0%, rgba(35,0,89,1) 37%, rgba(11,0,33,1) 64%, rgba(12,0,46,1) 81%, rgba(0,0,0,1) 133%);
+}
 
 .container{
     display: flex;
@@ -28,7 +96,16 @@ body{
 
 }
 
-.buttons{
+
+
+
+                /***********
+                 LIGHT MODE
+                ***********/
+
+
+
+#light-mode .buttons{
     display: grid; 
     grid-template-columns: repeat(4,66px);
     place-items: center;
@@ -42,7 +119,7 @@ body{
 }
 
 
-#input{
+#light-mode #input{
     color: black;
     grid-column: span 4 !important;
     width: 260px;
@@ -59,7 +136,7 @@ body{
     overflow:hidden;
 }
 
-#result{
+#light-mode #result{
     grid-column: span 4;
     background-color: rgb(232, 232, 232);
     height: 50px;
@@ -76,7 +153,7 @@ body{
     
 }
 
-button{ 
+#light-mode button{ 
     background-color: rgb(237, 237, 237);
     border-color: transparent;
     border-radius: 50%;
@@ -89,52 +166,177 @@ button{
     
 }
 
-button:active{
+#light-mode button:active{
     background-color: rgb(188, 188, 188);
 }
 
-#submit{
+#light-mode #submit{
     grid-column: span 2;
     border-radius: 42px;
     width: 120px;
 }
 
-#divide {
+#light-mode #divide {
     background-color: rgb(186, 240, 255);
 }
 
-    #divide:active{
+    #light-mode #divide:active{
         background-color: rgb(78, 217, 255);
     }
 
-#multiply{
+#light-mode #multiply{
     background-color: rgb(186, 208, 255);
 }
 
-    #multiply:active{
+    #light-mode #multiply:active{
         background-color: rgb(97, 147, 255);
     }
 
-#subtract{
+#light-mode #subtract{
     background-color: rgb(236, 206, 255);
 }
 
-    #subtract:active{
+    #light-mode #subtract:active{
         background-color: rgb(207, 129, 255);
     }
 
-#add{
+#light-mode #add{
     background-color: rgb(255, 197, 197);
 }
 
-    #add:active{
+    #light-mode #add:active{
         background-color: rgb(255, 143, 143);
     }
 
-#submit{
+#light-mode #submit{
     background-color: rgb(255, 216, 174);
 }
 
-    #submit:active{
+    #light-mode #submit:active{
         background-color: rgb(255, 178, 97);
     }
+
+
+
+
+
+                /***********
+                 DARK MODE
+                ***********/
+
+#dark-mode .buttons{
+    display: grid; 
+    grid-template-columns: repeat(4,66px);
+    place-items: center;
+    background-color: rgb(10, 10, 10);
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    padding-top: 20px;
+    border-radius: 12px;
+    font-style: bold;
+    color: white;
+
+}
+
+
+#dark-mode #input{
+    color: black;
+    grid-column: span 4 !important;
+    width: 260px;
+    background-color: rgb(17, 17, 17);
+    text-align: right;
+    padding: 15px;
+    height: 50px;
+    border-radius: 15px;
+    margin-bottom: 0px;
+    font-size: 20px;
+    color: grey;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    overflow:hidden;
+    
+}
+
+#dark-mode #result{
+    grid-column: span 4;
+    background-color: rgb(17, 17, 17);
+    height: 50px;
+    width: 260px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    text-align: right;
+    padding: 15px;
+    padding-top: 5px;
+    font-size: 35px;
+    overflow:hidden;
+    color: white;
+    
+}
+
+#dark-mode button{ 
+    background-color: rgb(19, 34, 75);
+    border-color: transparent;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    font-size: 20px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    margin: 7px;
+    padding:0;
+    color: white;
+    
+}
+
+#dark-mode button:active{
+    background-color: rgb(33, 75, 201);
+}
+
+#dark-mode #submit{
+    grid-column: span 2;
+    border-radius: 42px;
+    width: 120px;
+}
+
+#dark-mode #divide {
+    background-color: rgb(0, 171, 219);
+}
+
+    #dark-mode #divide:active{
+        background-color: rgb(0, 63, 80);
+    }
+
+#dark-mode #multiply{
+    background-color: rgb(38, 107, 255);
+}
+
+    #dark-mode #multiply:active{
+        background-color: rgb(0, 40, 125);
+    }
+
+#dark-mode #subtract{
+    background-color: rgb(192, 90, 255);
+}
+
+    #dark-mode #subtract:active{
+        background-color: rgb(102, 0, 165);
+    }
+
+#dark-mode #add{
+    background-color: rgb(255, 114, 114);
+}
+
+    #dark-mode #add:active{
+        background-color: rgb(158, 37, 37);
+    }
+
+#dark-mode #submit{
+    background-color: rgb(255, 184, 109);
+}
+
+    #dark-mode #submit:active{
+        background-color: rgb(170, 89, 2);
+    }
+
+

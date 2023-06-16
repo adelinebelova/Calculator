@@ -1,9 +1,25 @@
 const buttons = document.querySelectorAll('.button');
 const input_display = document.getElementById('input');
 const result_display = document.getElementById('result');
+let toggle_switch = document.querySelector('#switch');
+const mode = document.querySelector('#light-mode');
+const back_mode = document.querySelector('#back-light');
 
 let input = "";
 let result= "";
+
+//dark and light mode toggle
+toggle_switch.addEventListener('click', ()=> {
+    if(toggle_switch.checked){
+        mode.setAttribute("id", "dark-mode");
+        back_mode.setAttribute("id", "back-dark");
+    }
+    else {
+        mode.setAttribute("id", "light-mode");
+        back_mode.setAttribute("id", "back-light");
+    }
+       
+})
 
 
 for(let button of buttons){
@@ -17,28 +33,16 @@ for(let button of buttons){
         }
         else if(value == "=" ){
             result = eval(input);
-            if(count(result) >= 12 ){
-                
-                result.toFixed(12);
-            }
-            
-                result_display.innerHTML = result;
+            result_display.innerHTML = result.toLocaleString("en-US");
         }
         else if (value == "delete"){
             input = input.slice(0, -1);
-            input_display.innerHTML = input;
+            input_display.innerHTML = input.toLocaleString("en-US");
         }
         else{
             input += value;
-            input_display.innerHTML = input;
+            input_display.innerHTML = input.toLocaleString("en-US");
         }
     })
 }
 
-function count(result) {
-    const converted = result.toString();
-    if (converted.includes('.')) {
-       return converted.split('.')[1].length;
-    };
-    return 0;
-}
